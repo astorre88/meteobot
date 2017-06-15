@@ -1,6 +1,6 @@
 defmodule Qwantclient do
 
-  def search(userid, requestId, query) do 
+  def search(userid, requestId, query) do
     request(query)
     |>Poison.decode!
     |>parser
@@ -19,19 +19,19 @@ defmodule Qwantclient do
   end
 
   def parser(data) do
-    data["data"]["result"]["items"]                                          
+    data["data"]["result"]["items"]
     |> Enum.map(fn (item)->
-          article = %Nadia.Model.InlineQueryResult.Article{}                        
-          %{article | title: item["title"],                                                       
-              thumb_url: "http:"<>item["favicon"],                                                 
-              description: item["desc"],                                                  
-              url: item["url"],                                                           
-              id: item["_id"],                                  
+          article = %Nadia.Model.InlineQueryResult.Article{}
+          %{article | title: item["title"],
+              thumb_url: "http:"<>item["favicon"],
+              description: item["desc"],
+              url: item["url"],
+              id: item["_id"],
               input_message_content: %Nadia.Model.InputMessageContent.Text{ %Nadia.Model.InputMessageContent.Text{} | message_text: item["title"]<>item["desc"], parse_mode: "HTML" }
             } end)
   end
 
-  def send_toUser(response,requestId) do
+  def send_toUser(response, requestId) do
     res = Nadia.answer_inline_query(requestId, response)
     IO.inspect res
     IO.puts "nadi"
