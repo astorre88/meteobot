@@ -6,7 +6,7 @@ defmodule Meteobot.PageController do
     from = params["message"]
     # Qwantclient.search(from["id"], id, query)
     
-    case Nadia.send_message(from["id"], 'test') do
+    case Nadia.send_message(m["from"]["id"], 'test') do
       {:ok, _result} ->
         :ok
       {:error, %Nadia.Model.Error{reason: "Please wait a little"}} ->
