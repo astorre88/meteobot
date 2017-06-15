@@ -32,8 +32,6 @@ defmodule Qwantclient do
   end
 
   def send_toUser(response, requestId) do
-    res = Nadia.answer_inline_query(requestId, response)
-    IO.inspect res
-    IO.puts "nadi"
+    Nadia.answer_inline_query(requestId, response)
   end
 end
