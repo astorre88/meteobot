@@ -2,11 +2,10 @@ defmodule Meteobot.PageController do
   use Meteobot.Web, :controller
 
   def index(conn, params) do
-    IO.inspect(params)
-    # %{"from" => from, "id" => id, "offset" => _, "query" => query} = params["inline_query"]
+    %{"from" => from, "id" => id, "offset" => _, "query" => query} = params["message"]
     # Qwantclient.search(from["id"], id, query)
     
-    case Nadia.send_message(1, 'test') do
+    case Nadia.send_message(from["id"], 'test') do
       {:ok, _result} ->
         :ok
       {:error, %Nadia.Model.Error{reason: "Please wait a little"}} ->
