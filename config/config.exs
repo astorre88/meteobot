@@ -13,6 +13,9 @@ config :meteobot, Meteobot.Endpoint,
   pubsub: [name: Meteobot.PubSub,
            adapter: Phoenix.PubSub.PG2]
 
+config :nadia,
+ token: "385233462:AAGR1k7-o4Jnz4tmKVjpttnPX3jjpC2xHs4"
+
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",

@@ -18,9 +18,6 @@ config :meteobot, Meteobot.Endpoint,
   secret_key_base: System.get_env("SECRET_KEY_BASE"),
   cache_static_manifest: "priv/static/manifest.json"
 
-config :nadia,
- token: "385233462:AAGR1k7-o4Jnz4tmKVjpttnPX3jjpC2xHs4"
-
 # Do not print debug messages in production
 config :logger, level: :info
 
