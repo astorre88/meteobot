@@ -8,7 +8,7 @@ defmodule Qwantclient do
   end
 
   def request(query) do
-    url = "https://api.qwant.com/api/search/web?q=#{query}"
+    url = "https://api.qwant.com/api/search/web?count=10&device=mobile&extensionDisabled=true&safesearch=1&locale=ru_RU&q=#{query}&t=web"
     case HTTPoison.get(url) do
       {:ok, %HTTPoison.Response{status_code: 200, body: body}} ->
         body
