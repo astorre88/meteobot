@@ -1,6 +1,6 @@
 defmodule Qwantclient do
 
-  def search(userid, requestId, query) do
+  def search(_userid, requestId, query) do
     request(query)
     |>Poison.decode!
     |>parser
